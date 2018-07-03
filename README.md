@@ -9,7 +9,7 @@
 * Cache和meltdown
 为了提高访问内存的速度，现代计算机常采用cache策略，即将使用率较高的内存内容存放在cache中来提高访存速度，常见的cache替换算法有FIFO、LRU、LFU等，但是无论是那种算法，最近被使用过的块（部分教材中称页）最容易被写进cache，当异常产生时，由于CPU的乱序执行，导致出现异常的代码后面的几条代码也被执行，虽然事后这些代码执行的结果会被取消，但是对应的写入cache的内容却不会被修改。所以，攻击者可以在这些代码中对系统内核或者其他内存空间进行访问，从而让该页被cache，通过检测每一页的读取速度，即采用Flush+ Reload策略，便可以确定被cache的页的地址，从而确定页的内容，该方法一次可以读取一个字节，通过反复循环执行即可窃取整个内核信息。
 （https://blog.csdn.net/y734564892/article/details/79019084）
- 
+ ![image](https://github.com/OSH-2018/4-seconrg/blob/master/download.png)
 上图说明了利用CPU乱序执行来实现攻击的大致过程，在该流程图结束后，通过对内存的每一块进行访问并检测访问时间，最短的块即为被写入cache的块，从而可以确定m的值，页就获得了非法地址a中的一个字节的数据m。
 
 ## 实验步骤：
@@ -23,7 +23,8 @@
 
 ## 实验结果：
 通过实验，成功窃取了内核信息，如下图所示：
-
+![image](https://github.com/OSH-2018/4-seconrg/blob/master/result1.png)
+![image](https://github.com/OSH-2018/4-seconrg/blob/master/result2.png)
  
  
 ## 实验分析：
