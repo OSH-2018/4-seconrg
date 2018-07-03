@@ -1,8 +1,8 @@
 # Meltdown漏洞和spectre漏洞报告 
 陆万航 PB16110766 使用迟交机会
 ## 实验环境：
-*参考了https://github.com/paboldin/meltdown-exploit上的melt.sh，可以达到获取内核信息的效果
-*由于虚拟机（linux18.04）会受到宿主机（windows 10，已安装meltdown）的影响，经反复尝试仍未能成功关闭meltdown补丁，所以借用了同学的ubuntu 16.04，内核版本Linux4.10.0-28，未安装meltdown补丁。
+* 参考了https://github.com/paboldin/meltdown-exploit上的melt.sh，可以达到获取内核信息的效果
+* 由于虚拟机（linux18.04）会受到宿主机（windows 10，已安装meltdown）的影响，经反复尝试仍未能成功关闭meltdown补丁，所以借用了同学的ubuntu 16.04，内核版本Linux4.10.0-28，未安装meltdown补丁。
 ## Meltdown漏洞原理：
 * CPU的乱序执行
 在计算机组成原理的课程中提到过，为了能够最大限度地利用资源，不让其空闲，所以常常采用乱序执行的策略来提高CPU的利用率，提高其工作效率，即指令实际执行的顺序和程序员编写出的程序有所不同，这也是meltdown漏洞产生的根源。在遇到异常指令时，在CPU检测到异常并跳转到指定地址执行中断服务程序前，出现中断的指令后面的几条指令实际上也已经被执行，只是在之后的执行过程中，这些数值都被舍弃了。例如在MIPS指令集体系中，产生的异常直到MEM段才被提交，即CPU在MEM段才能检测到异常，此时接下来的几条与异常无关的指令均被执行。
