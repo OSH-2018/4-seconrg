@@ -23,8 +23,8 @@
 
 ## 实验结果：
 通过实验，成功窃取了内核信息，如下图所示：
-![image](https://github.com/OSH-2018/4-seconrg/result1.png)
-![image](https://github.com/OSH-2018/4-seconrg/result2.png)
+![image](https://github.com/OSH-2018/4-seconrg/blob/master/result1.png)
+![image](https://github.com/OSH-2018/4-seconrg/blob/master/result2.png)
  
  
 ## 实验分析：
