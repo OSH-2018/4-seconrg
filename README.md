@@ -1,7 +1,7 @@
 # Meltdown漏洞和spectre漏洞报告 
 陆万航 PB16110766 使用迟交机会
 ## 实验环境：
-* 参考了https://github.com/paboldin/meltdown-exploit上的melt.sh，可以达到获取内核信息的效果
+* 参考了https://github.com/paboldin/meltdown-exploit 上的melt.sh，可以达到获取内核信息的效果
 * 由于虚拟机（linux18.04）会受到宿主机（windows 10，已安装meltdown）的影响，经反复尝试仍未能成功关闭meltdown补丁，所以借用了同学的ubuntu 16.04，内核版本Linux4.10.0-28，未安装meltdown补丁。
 ## Meltdown漏洞原理：
 * CPU的乱序执行
